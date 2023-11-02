@@ -1,0 +1,116 @@
+[
+  {
+    "date": null,
+    "sum": 949,
+    "description": "",
+    "tags": [
+      "expenses"
+    ]
+  },
+  {
+    "date": null,
+    "sum": 842,
+    "description": "",
+    "tags": [
+      "expenses",
+      "supermarket"
+    ]
+  },
+  {
+    "date": null,
+    "sum": 625,
+    "description": "",
+    "tags": [
+      "expenses",
+      "supermarket",
+      "dastor"
+    ]
+  },
+  {
+    "date": "2023-08-11",
+    "sum": 110,
+    "description": "third row 1",
+    "tags": [
+      "expenses",
+      "supermarket",
+      "dastor"
+    ]
+  },
+  {
+    "date": "2023-08-12",
+    "sum": 215,
+    "description": "third row 2",
+    "tags": [
+      "expenses",
+      "supermarket",
+      "dastor"
+    ]
+  },
+  {
+    "date": "2023-08-14",
+    "sum": 300,
+    "description": "third row 3",
+    "tags": [
+      "expenses",
+      "supermarket",
+      "dastor"
+    ]
+  },
+  {
+    "date": null,
+    "sum": 600,
+    "description": "",
+    "tags": [
+      "expenses",
+      "supermarket",
+      "silpo"
+    ]
+  },
+  {
+    "date": "2023-08-11",
+    "sum": 100,
+    "description": "third row 1",
+    "tags": [
+      "expenses",
+      "supermarket",
+      "silpo"
+    ]
+  },
+  {
+    "date": "2023-08-12",
+    "sum": 200,
+    "description": "third row 2",
+    "tags": [
+      "expenses",
+      "supermarket",
+      "silpo"
+    ]
+  },
+  {
+    "date": "2023-08-14",
+    "sum": 300,
+    "description": "third row 3",
+    "tags": [
+      "expenses",
+      "supermarket",
+      "silpo"
+    ]
+  },
+  {
+    "date": null,
+    "sum": 0,
+    "description": "",
+    "tags": [
+      "expenses",
+      "supermarket"
+    ]
+  },
+  {
+    "date": null,
+    "sum": 0,
+    "description": "",
+    "tags": [
+      "expenses"
+    ]
+  }
+]
