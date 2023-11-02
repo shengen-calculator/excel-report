@@ -13,10 +13,18 @@ export default class ExpensesReport {
         this.data = data;
     }
 
+    private createReportRows() {
+
+    }
+
+    public getReportRows() {
+
+    }
+
     public saveToFile = () => {
         for (let i = 0; i < this.data.length; i++) {
             if (this.data[i].date) { // details
-                this.ws.cell(i + 1, this.data[i].tags.length + 1).date(this.data[i].date);
+                this.ws.cell(i + 1, this.data[i].tags.length + 1).date(new Date(this.data[i].date || 0));
                 this.ws.cell(i + 1, this.data[i].tags.length + 2).number(this.data[i].sum);
                 this.ws.cell(i + 1, this.data[i].tags.length + 3).string(this.data[i].description);
                 this.ws.row(i + 1).group(this.data[i].tags.length, true);

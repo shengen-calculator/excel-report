@@ -1,5 +1,5 @@
 type OperationRow = {
-    date: Date | null,
+    date: string | null,
     sum: number,
     description: string,
     tags: string[],
