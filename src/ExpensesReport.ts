@@ -3,22 +3,51 @@ const xl = require("excel4node");
 export default class ExpensesReport {
     private readonly wb: any;
     private readonly ws: any;
-    private readonly data: Array<OperationRow>;
+    private readonly data: Array<Operation>;
+    private readonly reportRows: Array<ReportRow> = new Array<ReportRow>();
 
-    constructor(data: Array<OperationRow>) {
+    constructor(data: Array<Operation>) {
         this.wb = new xl.Workbook({
             dateFormat: "d-m-yy",
         });
         this.ws = this.wb.addWorksheet("Manetta report");
         this.data = data;
+        this.createReportRows();
     }
 
     private createReportRows() {
-
+        const orderedData = this.data.sort(this.compareFn);
+        orderedData.forEach(operation => {
+            this.reportRows.unshift({
+                date: operation.date,
+                description: operation.description,
+                tags: operation.tags,
+                sum: operation.sum
+            })
+        })
     }
 
-    public getReportRows() {
+    private compareFn = (a: Operation, b: Operation): number => {
+        const aTag = a.tags.join("");
+        const bTag = b.tags.join("");
 
+        if(aTag === bTag) {
+            return a.date > b.date ? 1 : -1;
+        }
+
+        if(~aTag.indexOf(bTag)) {
+            return -1;
+        }
+
+        if(~bTag.indexOf(aTag)) {
+            return 1;
+        }
+
+        return aTag.localeCompare(bTag);
+    };
+
+    public getReportRows(): Array<ReportRow> {
+        return this.reportRows;
     }
 
     public saveToFile = () => {

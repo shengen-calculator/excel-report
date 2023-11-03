@@ -1,9 +1,8 @@
 import ExpensesReport from "./ExpensesReport";
 import * as fs from "fs";
 
-fs.readFile("src/data/full.json", "utf8", function (err, data) {
-    if (err) throw err;
-    const dataObject = JSON.parse(data);
-    const report = new ExpensesReport(dataObject);
-    report.saveToFile();
-});
+const operationJson = fs.readFileSync('src/data/one_operation.json', 'utf8');
+const operations = JSON.parse(operationJson);
+const report = new ExpensesReport(operations);
+const data = report.getReportRows();
+console.log(data);

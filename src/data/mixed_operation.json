@@ -1,7 +1,7 @@
 [
   {
     "date": null,
-    "sum": 1549,
+    "sum": 949,
     "description": "",
     "tags": [
       "expenses"
@@ -9,7 +9,7 @@
   },
   {
     "date": null,
-    "sum": 1442,
+    "sum": 842,
     "description": "",
     "tags": [
       "expenses",
@@ -97,27 +97,9 @@
     ]
   },
   {
-    "date": "2022-05-10",
-    "sum": 65,
-    "description": "second row 1",
-    "tags": [
-      "expenses",
-      "supermarket"
-    ]
-  },
-  {
-    "date": "2022-05-12",
-    "sum": 72,
-    "description": "second row 2",
-    "tags": [
-      "expenses",
-      "supermarket"
-    ]
-  },
-  {
-    "date": "2022-05-13",
-    "sum": 80,
-    "description": "second row 3",
+    "date": null,
+    "sum": 0,
+    "description": "",
     "tags": [
       "expenses",
       "supermarket"
@@ -132,7 +114,7 @@
     ]
   },
   {
-    "date": "2020-05-24",
+    "date": "2020-05-22",
     "sum": 34,
     "description": "first row - 2",
     "tags": [
@@ -140,7 +122,7 @@
     ]
   },
   {
-    "date": "2020-05-26",
+    "date": "2020-05-22",
     "sum": 51,
     "description": "first row - 3",
     "tags": [
