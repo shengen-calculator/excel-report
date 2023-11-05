@@ -25,17 +25,21 @@ export default class ExpensesReport {
         orderedData.forEach(operation => {
             for (let i = 0; i < operation.tags.length; i++) {
                 while (this.tags.length > operation.tags.length) {
-                    this.removeTag(this.tags);
+                    this.removeTag();
                 }
                 if (this.tags[i] !== operation.tags[i]) {
                     while (this.tags.length > i) {
-                        this.removeTag(this.tags);
+                        this.removeTag();
                     }
                     this.addTag(this.tags, operation.tags[i]);
                 }
             }
             this.reportRows.push(operation);
-        })
+        });
+
+        while (this.tags.length > 0) {
+            this.removeTag();
+        }
     };
 
     private compareFn = (a: Operation, b: Operation): number => {
@@ -71,13 +75,13 @@ export default class ExpensesReport {
         this.tags.push(tag);
     };
 
-    private removeTag = (tags: string[]): void => {
-        if(!this.filledGroups[this.getKey(tags)]) {
+    private removeTag = (): void => {
+        if(!this.filledGroups[this.getKey(this.tags)]) {
             this.reportRows.push({
                 date: null,
                 sum: 0,
                 description: "",
-                tags: tags
+                tags: [...this.tags]
             });
         }
         this.tags.pop();
