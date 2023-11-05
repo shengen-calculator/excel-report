@@ -128,5 +128,37 @@
     "tags": [
       "expenses"
     ]
+  },
+  {
+    "date": null,
+    "sum": 14.2,
+    "description": "",
+    "tags": [
+      "income"
+    ]
+  },
+  {
+    "date": null,
+    "sum": 14.2,
+    "description": "",
+    "tags": [
+      "income", "cashback"
+    ]
+  },
+  {
+    "date": "2020-08-02",
+    "sum": 14.2,
+    "description": "otp - september",
+    "tags": [
+      "income", "cashback"
+    ]
+  },
+  {
+    "date": null,
+    "sum": 0,
+    "description": "",
+    "tags": [
+      "income"
+    ]
   }
 ]
