@@ -8,6 +8,13 @@ export default class ExpensesReport {
     private readonly totals: Record<string, number> = {};
     private readonly filledGroups: Record<string, boolean> = {};
     private readonly tags: Array<string> = [];
+    private readonly headerStyle: any;
+    private readonly groupStyle: any;
+    private readonly detailsStyle: any;
+    private readonly detailsSumStyle: any;
+    private readonly topShift: number = 4;
+
+
 
     constructor(data: Array<Operation>) {
         this.wb = new xl.Workbook({
@@ -15,8 +22,80 @@ export default class ExpensesReport {
         });
         this.ws = this.wb.addWorksheet("Manetta report");
         this.data = data;
+        this.headerStyle = this.createHeaderStyle();
+        this.groupStyle = this.createGroupStyle();
+        this.detailsStyle = this.createDetailsStyle();
+        this.detailsSumStyle = this.createDetailsSumStyle();
+        this.createHeader();
         this.createReportRows();
     }
+
+    /**
+     * Create header style
+     * @return {any}
+     */
+    private createHeaderStyle = () => {
+        return this.wb.createStyle({
+            font: {
+                color: "#4F33FF",
+                size: 16,
+            }
+        });
+    };
+
+    /**
+     * Create group style
+     * @return {any}
+     */
+    private createGroupStyle = () => {
+        return this.wb.createStyle({
+            font: {
+                color: "#FF0800",
+                size: 16,
+            },
+            numberFormat: "€#,##0.00; (€#,##0.00); -",
+        });
+    };
+
+    /**
+     * Create details style
+     * @return {any}
+     */
+    private createDetailsStyle = () => {
+        return this.wb.createStyle({
+            font: {
+                size: 14,
+            }
+        });
+    };
+
+    /**
+     * Create details price style
+     * @return {any}
+     */
+    private createDetailsSumStyle = () => {
+        return this.wb.createStyle({
+            font: {
+                size: 16,
+            },
+            numberFormat: "€#,##0.00; (€#,##0.00); -",
+        });
+    };
+
+    private createHeader = () => {
+        this.ws.cell(1, 1)
+            .string(`Start Date`)
+            .style(this.headerStyle);
+        this.ws.cell(1, 2)
+            .date(new Date())
+            .style(this.headerStyle);
+        this.ws.cell(2, 1)
+            .string(`End Date`)
+            .style(this.headerStyle);
+        this.ws.cell(2, 2)
+            .date(new Date())
+            .style(this.headerStyle);
+    };
 
     private createReportRows = () => {
         const orderedData = this.data.sort(this.compareFn);
@@ -102,18 +181,29 @@ export default class ExpensesReport {
     public saveToFile = () => {
         for (let i = 0; i < this.reportRows.length; i++) {
             if (this.reportRows[i].date) { // details
-                this.ws.cell(i + 1, this.reportRows[i].tags.length + 1).date(this.reportRows[i].date);
-                this.ws.cell(i + 1, this.reportRows[i].tags.length + 2).number(this.reportRows[i].sum);
-                this.ws.cell(i + 1, this.reportRows[i].tags.length + 3).string(this.reportRows[i].description);
-                this.ws.row(i + 1).group(this.reportRows[i].tags.length, true);
+                this.ws.cell(i + this.topShift, this.reportRows[i].tags.length + 1)
+                    .date(this.reportRows[i].date)
+                    .style(this.detailsStyle);
+                this.ws.cell(i + this.topShift, this.reportRows[i].tags.length + 2)
+                    .string(this.reportRows[i].description)
+                    .style(this.detailsStyle);
+                this.ws.cell(i + this.topShift, this.reportRows[i].tags.length + 3)
+                    .number(this.reportRows[i].sum)
+                    .style(this.detailsSumStyle);
+
+                this.ws.row(i + this.topShift).group(this.reportRows[i].tags.length, true);
             } else if(this.reportRows[i].sum > 0) { // header
-                this.ws.cell(i + 1, this.reportRows[i].tags.length)
-                    .string(`${this.reportRows[i].tags[this.reportRows[i].tags.length - 1]} - ${this.reportRows[i].sum}`);
+                this.ws.cell(i + this.topShift, this.reportRows[i].tags.length)
+                    .string(this.reportRows[i].tags[this.reportRows[i].tags.length - 1])
+                    .style(this.groupStyle);
+                this.ws.cell(i + this.topShift, this.reportRows[i].tags.length + 1)
+                    .number(this.reportRows[i].sum)
+                    .style(this.groupStyle);
                 if(this.reportRows[i].tags.length > 1) {
-                    this.ws.row(i + 1).group(this.reportRows[i].tags.length - 1, true);
+                    this.ws.row(i + this.topShift).group(this.reportRows[i].tags.length - 1, true);
                 }
             } else { // footer (empty)
-                this.ws.row(i + 1).group(this.reportRows[i].tags.length, true);
+                this.ws.row(i + this.topShift).group(this.reportRows[i].tags.length, true);
             }
         }
         this.wb.write('ExcelFile.xlsx');
