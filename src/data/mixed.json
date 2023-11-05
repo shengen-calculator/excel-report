@@ -1,7 +1,7 @@
 [
   {
     "date": null,
-    "sum": 949,
+    "sum": 1332,
     "description": "",
     "tags": [
       "expenses"
@@ -9,7 +9,7 @@
   },
   {
     "date": null,
-    "sum": 842,
+    "sum": 1225,
     "description": "",
     "tags": [
       "expenses",
@@ -114,7 +114,7 @@
     ]
   },
   {
-    "date": "2020-05-22",
+    "date": "2020-05-23",
     "sum": 34,
     "description": "first row - 2",
     "tags": [
@@ -122,7 +122,7 @@
     ]
   },
   {
-    "date": "2020-05-22",
+    "date": "2020-05-24",
     "sum": 51,
     "description": "first row - 3",
     "tags": [
