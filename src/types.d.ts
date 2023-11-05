@@ -1,12 +1,12 @@
 type ReportRow = {
-    date: number | null,
+    date: Date | null,
     sum: number,
     description: string,
     tags: string[]
 }
 
 type Operation = {
-    date: number,
+    date: Date,
     description: string,
     sum: number,
     tags: string[]

@@ -1,25 +1,8 @@
 [
   {
-    "date": null,
-    "sum": 1549,
-    "description": "",
-    "tags": [
-      "expenses"
-    ]
-  },
-  {
-    "date": null,
-    "sum": 1442,
-    "description": "",
-    "tags": [
-      "expenses",
-      "supermarket"
-    ]
-  },
-  {
-    "date": null,
-    "sum": 625,
-    "description": "",
+    "date": "2023-08-14",
+    "sum": 300,
+    "description": "third row 3",
     "tags": [
       "expenses",
       "supermarket",
@@ -37,6 +20,22 @@
     ]
   },
   {
+    "date": "2020-05-26",
+    "sum": 51,
+    "description": "first row - 3",
+    "tags": [
+      "expenses"
+    ]
+  },
+  {
+    "date": "2020-05-24",
+    "sum": 34,
+    "description": "first row - 2",
+    "tags": [
+      "expenses"
+    ]
+  },
+  {
     "date": "2023-08-12",
     "sum": 215,
     "description": "third row 2",
@@ -44,26 +43,6 @@
       "expenses",
       "supermarket",
       "dastor"
-    ]
-  },
-  {
-    "date": "2023-08-14",
-    "sum": 300,
-    "description": "third row 3",
-    "tags": [
-      "expenses",
-      "supermarket",
-      "dastor"
-    ]
-  },
-  {
-    "date": null,
-    "sum": 600,
-    "description": "",
-    "tags": [
-      "expenses",
-      "supermarket",
-      "silpo"
     ]
   },
   {
@@ -77,16 +56,6 @@
     ]
   },
   {
-    "date": "2023-08-12",
-    "sum": 200,
-    "description": "third row 2",
-    "tags": [
-      "expenses",
-      "supermarket",
-      "silpo"
-    ]
-  },
-  {
     "date": "2023-08-14",
     "sum": 300,
     "description": "third row 3",
@@ -94,6 +63,15 @@
       "expenses",
       "supermarket",
       "silpo"
+    ]
+  },
+  {
+    "date": "2022-05-13",
+    "sum": 80,
+    "description": "second row 3",
+    "tags": [
+      "expenses",
+      "supermarket"
     ]
   },
   {
@@ -115,15 +93,6 @@
     ]
   },
   {
-    "date": "2022-05-13",
-    "sum": 80,
-    "description": "second row 3",
-    "tags": [
-      "expenses",
-      "supermarket"
-    ]
-  },
-  {
     "date": "2020-05-22",
     "sum": 22,
     "description": "first row - 1",
@@ -132,19 +101,13 @@
     ]
   },
   {
-    "date": "2020-05-24",
-    "sum": 34,
-    "description": "first row - 2",
+    "date": "2023-08-12",
+    "sum": 200,
+    "description": "third row 2",
     "tags": [
-      "expenses"
-    ]
-  },
-  {
-    "date": "2020-05-26",
-    "sum": 51,
-    "description": "first row - 3",
-    "tags": [
-      "expenses"
+      "expenses",
+      "supermarket",
+      "silpo"
     ]
   }
 ]
