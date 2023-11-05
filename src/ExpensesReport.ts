@@ -100,20 +100,20 @@ export default class ExpensesReport {
     private getKey = (tags: string[]) => tags.join("|");
 
     public saveToFile = () => {
-        for (let i = 0; i < this.data.length; i++) {
-            if (this.data[i].date) { // details
-                this.ws.cell(i + 1, this.data[i].tags.length + 1).date(this.data[i].date);
-                this.ws.cell(i + 1, this.data[i].tags.length + 2).number(this.data[i].sum);
-                this.ws.cell(i + 1, this.data[i].tags.length + 3).string(this.data[i].description);
-                this.ws.row(i + 1).group(this.data[i].tags.length, true);
-            } else if(this.data[i].sum > 0) { // header
-                this.ws.cell(i + 1, this.data[i].tags.length)
-                    .string(`${this.data[i].tags[this.data[i].tags.length - 1]} - ${this.data[i].sum}`);
-                if(this.data[i].tags.length > 1) {
-                    this.ws.row(i + 1).group(this.data[i].tags.length - 1, true);
+        for (let i = 0; i < this.reportRows.length; i++) {
+            if (this.reportRows[i].date) { // details
+                this.ws.cell(i + 1, this.reportRows[i].tags.length + 1).date(this.reportRows[i].date);
+                this.ws.cell(i + 1, this.reportRows[i].tags.length + 2).number(this.reportRows[i].sum);
+                this.ws.cell(i + 1, this.reportRows[i].tags.length + 3).string(this.reportRows[i].description);
+                this.ws.row(i + 1).group(this.reportRows[i].tags.length, true);
+            } else if(this.reportRows[i].sum > 0) { // header
+                this.ws.cell(i + 1, this.reportRows[i].tags.length)
+                    .string(`${this.reportRows[i].tags[this.reportRows[i].tags.length - 1]} - ${this.reportRows[i].sum}`);
+                if(this.reportRows[i].tags.length > 1) {
+                    this.ws.row(i + 1).group(this.reportRows[i].tags.length - 1, true);
                 }
             } else { // footer (empty)
-                this.ws.row(i + 1).group(this.data[i].tags.length, true);
+                this.ws.row(i + 1).group(this.reportRows[i].tags.length, true);
             }
         }
         this.wb.write('ExcelFile.xlsx');
