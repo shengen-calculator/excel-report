@@ -192,7 +192,7 @@ export default class ExpensesReport {
                     .style(this.detailsSumStyle);
 
                 this.ws.row(i + this.topShift).group(this.reportRows[i].tags.length, true);
-            } else if(this.reportRows[i].sum > 0) { // header
+            } else if(this.reportRows[i].sum !== 0) { // header
                 this.ws.cell(i + this.topShift, this.reportRows[i].tags.length)
                     .string(this.reportRows[i].tags[this.reportRows[i].tags.length - 1])
                     .style(this.groupStyle);
